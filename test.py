@@ -1,4 +1,4 @@
-#test.py
+#!/usr/bin/env python
 #This file is part of the PyAsciiArt project
 #Created by Huba Nagy 17.02.12
 #  and is released under the MIT Licence.
