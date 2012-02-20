@@ -42,13 +42,9 @@ class ascii_art_str:
             nxt = char_count + 1
             if chars[char_count] == "\\" :
                 if char_count < (len(chars) - 1):
-                    print "one more till the end"
                     if chars[nxt] == "N":
-                        print "next is n"
                         if char_count > 0:
-                            print "greater than 0"
                             if chars[prev] != "\\":
-                                print "no escape!"
                                 output.append(row_s)
                                 row_s = ""
                                 first = False
