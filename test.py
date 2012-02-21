@@ -14,10 +14,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-import ascii_art_titles
+import py_ascii_art.titles
 
 def test():
-    title_as = ascii_art_titles.ascii_art_str("ascii")
+    title_as = py_ascii_art.titles.ascii_art_str("ascii")
     title_as.print_art()
     print "\n"
     print """Type a word to generate ascii art
@@ -27,7 +27,7 @@ Quit is NOT case sensitive!"""
     usr_in = raw_input("Type something: ")
     print "\n"
     while usr_in.upper() != "QUIT":
-       txt_as = ascii_art_titles.ascii_art_str(usr_in)
+       txt_as = py_ascii_art.titles.ascii_art_str(usr_in)
        txt_as.print_art()
        usr_in = raw_input("Type something: ")
        print "\n"

@@ -1,4 +1,4 @@
-#ascii_art_titles.py
+#titles.py
 #This file is part of the PyAsciiArt project
 #Created by Huba Nagy 17.02.12
 #  and is released under the MIT Licence.
@@ -15,7 +15,7 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 
 
-import ascii_art_font
+import font
 
 class ascii_art_str:
     def __init__(self, text):
@@ -81,202 +81,202 @@ class ascii_art_str:
             while char_number < len(chars):
                 char = chars[char_number]
                 if char == "A":
-                    output = output + ascii_art_font.char_A[row]
+                    output = output + font.char_A[row]
 
                 elif char == "B":
-                    output = output + ascii_art_font.char_B[row]
+                    output = output + font.char_B[row]
                     
                 elif char == "C":
-                    output = output + ascii_art_font.char_C[row]
+                    output = output + font.char_C[row]
 
                 elif char == "D":
-                    output = output + ascii_art_font.char_D[row]
+                    output = output + font.char_D[row]
 
                 elif char == "E":
-                    output = output + ascii_art_font.char_E[row]
+                    output = output + font.char_E[row]
 
                 elif char == "F":
-                    output = output + ascii_art_font.char_F[row]
+                    output = output + font.char_F[row]
 
                 elif char == "G":
-                    output = output + ascii_art_font.char_G[row]
+                    output = output + font.char_G[row]
 
                 elif char == "H":
-                    output = output + ascii_art_font.char_H[row]
+                    output = output + font.char_H[row]
 
                 elif char == "I":
-                    output = output + ascii_art_font.char_I[row]
+                    output = output + font.char_I[row]
 
                 elif char == "J":
-                    output = output + ascii_art_font.char_J[row]
+                    output = output + font.char_J[row]
 
                 elif char == "K":
-                    output = output + ascii_art_font.char_K[row]
+                    output = output + font.char_K[row]
 
                 elif char == "L":
-                    output = output + ascii_art_font.char_L[row]
+                    output = output + font.char_L[row]
 
                 elif char == "M":
-                    output = output + ascii_art_font.char_M[row]
+                    output = output + font.char_M[row]
 
                 elif char == "N":
-                    output = output + ascii_art_font.char_N[row]
+                    output = output + font.char_N[row]
 
                 elif char == "O":
-                    output = output + ascii_art_font.char_O[row]
+                    output = output + font.char_O[row]
 
                 elif char == "P":
-                    output = output + ascii_art_font.char_P[row]
+                    output = output + font.char_P[row]
 
                 elif char == "Q":
-                    output = output + ascii_art_font.char_Q[row]
+                    output = output + font.char_Q[row]
 
                 elif char == "R":
-                    output = output + ascii_art_font.char_R[row]
+                    output = output + font.char_R[row]
 
                 elif char == "S":
-                    output = output + ascii_art_font.char_S[row]
+                    output = output + font.char_S[row]
 
                 elif char == "T":
-                    output = output + ascii_art_font.char_T[row]
+                    output = output + font.char_T[row]
 
                 elif char == "U":
-                    output = output + ascii_art_font.char_U[row]
+                    output = output + font.char_U[row]
 
                 elif char == "V":
-                    output = output + ascii_art_font.char_V[row]
+                    output = output + font.char_V[row]
 
                 elif char == "W":
-                    output = output + ascii_art_font.char_W[row]
+                    output = output + font.char_W[row]
 
                 elif char == "X":
-                    output = output + ascii_art_font.char_X[row]
+                    output = output + font.char_X[row]
 
                 elif char == "Y":
-                    output = output + ascii_art_font.char_Y[row]
+                    output = output + font.char_Y[row]
 
                 elif char == "Z":
-                    output = output + ascii_art_font.char_Z[row]
+                    output = output + font.char_Z[row]
 
                 elif char == " ":
-                    output = output + ascii_art_font.char_space[row]
+                    output = output + font.char_space[row]
 
                 elif char == "0":
-                    output = output + ascii_art_font.char_0[row]
+                    output = output + font.char_0[row]
 
                 elif char == "1":
-                    output = output + ascii_art_font.char_1[row]
+                    output = output + font.char_1[row]
 
                 elif char == "2":
-                    output = output + ascii_art_font.char_2[row]
+                    output = output + font.char_2[row]
 
                 elif char == "3":
-                    output = output + ascii_art_font.char_3[row]
+                    output = output + font.char_3[row]
 
                 elif char == "4":
-                    output = output + ascii_art_font.char_4[row]
+                    output = output + font.char_4[row]
 
                 elif char == "5":
-                    output = output + ascii_art_font.char_5[row]
+                    output = output + font.char_5[row]
 
                 elif char == "6":
-                    output = output + ascii_art_font.char_6[row]
+                    output = output + font.char_6[row]
 
                 elif char == "7":
-                    output = output + ascii_art_font.char_7[row]
+                    output = output + font.char_7[row]
 
                 elif char == "8":
-                    output = output + ascii_art_font.char_8[row]
+                    output = output + font.char_8[row]
 
                 elif char == "9":
-                    output = output + ascii_art_font.char_9[row]
+                    output = output + font.char_9[row]
 
                 elif char == "-":
-                    output = output + ascii_art_font.char_dash[row]
+                    output = output + font.char_dash[row]
 
                 elif char == "_":
-                    output = output + ascii_art_font.char_uscr[row]
+                    output = output + font.char_uscr[row]
 
                 elif char == "=":
-                    output = output + ascii_art_font.char_equa[row]
+                    output = output + font.char_equa[row]
 
                 elif char == "+":
-                    output = output + ascii_art_font.char_plus[row]
+                    output = output + font.char_plus[row]
 
                 elif char == ".":
-                    output = output + ascii_art_font.char_fstp[row]
+                    output = output + font.char_fstp[row]
 
                 elif char == ",":
-                    output = output + ascii_art_font.char_comm[row]
+                    output = output + font.char_comm[row]
 
                 elif char == ":":
-                    output = output + ascii_art_font.char_colo[row]
+                    output = output + font.char_colo[row]
 
                 elif char == ";":
-                    output = output + ascii_art_font.char_seco[row]
+                    output = output + font.char_seco[row]
 
                 elif char == "!":
-                    output = output + ascii_art_font.char_excl[row]
+                    output = output + font.char_excl[row]
 
                 elif char == "?":
-                    output = output + ascii_art_font.char_ques[row]
+                    output = output + font.char_ques[row]
 
                 elif char == "%":
-                    output = output + ascii_art_font.char_perc[row]
+                    output = output + font.char_perc[row]
 
                 elif char == "@":
-                    output = output + ascii_art_font.char_atsg[row]
+                    output = output + font.char_atsg[row]
 
                 elif char == ">":
-                    output = output + ascii_art_font.char_gulc[row]
+                    output = output + font.char_gulc[row]
 
                 elif char == "<":
-                    output = output + ascii_art_font.char_gulo[row]
+                    output = output + font.char_gulo[row]
 
                 elif char == "#":
-                    output = output + ascii_art_font.char_hash[row]
+                    output = output + font.char_hash[row]
 
                 elif char == "*":
-                    output = output + ascii_art_font.char_star[row]
+                    output = output + font.char_star[row]
 
                 elif char == ")":
-                    output = output + ascii_art_font.char_brcc[row]
+                    output = output + font.char_brcc[row]
 
                 elif char == "(":
-                    output = output + ascii_art_font.char_brco[row]
+                    output = output + font.char_brco[row]
 
                 elif char == "]":
-                    output = output + ascii_art_font.char_sqbc[row]
+                    output = output + font.char_sqbc[row]
 
                 elif char == "[":
-                    output = output + ascii_art_font.char_sqbo[row]
+                    output = output + font.char_sqbo[row]
 
                 elif char == "}":
-                    output = output + ascii_art_font.char_crbc[row]
+                    output = output + font.char_crbc[row]
 
                 elif char == "{":
-                    output = output + ascii_art_font.char_crbo[row]
+                    output = output + font.char_crbo[row]
 
                 elif char == "'":
-                    output = output + ascii_art_font.char_squo[row]
+                    output = output + font.char_squo[row]
 
                 elif char == "\"":
-                    output = output + ascii_art_font.char_dquo[row]
+                    output = output + font.char_dquo[row]
 
                 elif char == "$":
-                    output = output + ascii_art_font.char_dolr[row]
+                    output = output + font.char_dolr[row]
 
                 elif char == "/":
-                    output = output + ascii_art_font.char_fsls[row]
+                    output = output + font.char_fsls[row]
 
                 elif char == "\\":
-                    output = output + ascii_art_font.char_bsls[row]
+                    output = output + font.char_bsls[row]
 
                 elif char == "&":
-                    output = output + ascii_art_font.char_ands[row]
+                    output = output + font.char_ands[row]
 
                 elif char == "|":
-                    output = output + ascii_art_font.char_verb[row]
+                    output = output + font.char_verb[row]
                     
                 else:
                     print "Invalid character! ", char, " is not valid!"

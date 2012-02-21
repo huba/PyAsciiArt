@@ -1,4 +1,4 @@
-#ascii_art_font.py
+#font.py
 #This file is part of the PyAsciiArt project
 #Created by Huba Nagy 18.02.12
 #  and is released under the MIT Licence.
