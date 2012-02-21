@@ -67,12 +67,12 @@ Output of test.py
 To implement it
 ---------------
 
-	'''python
+	```python
 	import py_ascii_art
 
 	title = py_ascii_art.titles.ascii_art_str("Hello\NWorld")
 	title.print_art()
-	'''
+	```
 
 This will produce:
 
