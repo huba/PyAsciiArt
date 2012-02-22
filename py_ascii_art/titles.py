@@ -16,6 +16,7 @@
 
 
 import font
+import text_parser
 
 class ascii_art_str:
     def __init__(self, text):
@@ -23,53 +24,12 @@ class ascii_art_str:
 
     def change_text(self, text):
         self.art = ""
-        rows_content = self.parse_text(text)
+        rows_content = text_parser.parse_str(text)
         row = 0
         while row < len(rows_content):
             self.art = self.art + self.gen_ascii_art(rows_content[row])
             row = row + 1
         
-    def parse_text(self, input_s):
-        input_s = input_s.upper()
-        chars = list(input_s)
-        row_s = ""
-        char_count = 0
-        output = []
-        first = True
-
-        while char_count < len(chars):
-            prev = char_count - 1
-            nxt = char_count + 1
-            if chars[char_count] == "\\" :
-                if char_count < (len(chars) - 1):
-                    if chars[nxt] == "N":
-                        if char_count > 0:
-                            if chars[prev] != "\\":
-                                output.append(row_s)
-                                row_s = ""
-                                first = False
-                                char_count = char_count + 1
-
-                        else:
-                            output.append(row_s)
-                            row_s = ""
-                            first = False
-                            char_count = char_count + 1
-
-                    else:
-                        row_s = row_s + chars[char_count]
-
-                else:
-                    row_s = row_s + chars[char_count]
-
-            else:
-                row_s = row_s + chars[char_count]
-
-            char_count = char_count + 1
-
-        output.append(row_s)
-        return output
-
     def gen_ascii_art(self, input_s):
         input_s = input_s.upper()
         chars = list(input_s)
