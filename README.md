@@ -15,15 +15,15 @@ Overview
 test.py is script demonstrates how to use all the different classes from the API.
 There are classes classes
 
-* plain_title   ascii art titles consisting of two different characters.
-* fancy_title   ascii art titles using the fancy_font class.
-* fancy_font   this class creates it's font style from an XML file.
-* framed_text   puts text into a box.
+* plain_title :  ascii art titles consisting of two different characters.
+* fancy_title :  ascii art titles using the fancy_font class.
+* fancy_font :  this class creates it's font style from an XML file.
+* framed_text :  puts text into a box.
 
 And two other modules with methods that are only used by the classes
 
-* text_parser   miscellanius functions used by the othr classes, like finding new line characters "&N" and tab characters "&T", &&T will return &T.
-* font   contains the default values used by the plain_font class.
+* text_parser :  miscellanius functions used by the othr classes, like finding new line characters "&N" and tab characters "&T", &&T will return &T.
+* font :  contains the default values used by the plain_font class.
 
 plain_title
 -----------
@@ -47,19 +47,21 @@ ft.print_art()
 ```
 These two classes need each other as you see the constructor
 of fancy_title needs an input text and an instance of the 
-fancy font class. Adding fonts is simple, there is an xml
+fancy font class.
+
+Adding new fonts
+----------------
+Adding fonts is simple, there is an xml
 called font_sample.xml in py_ascii_art/fonts. Fill out the
 where needed, refer to the annotation.The font style is 
 divided up into four zones plus one only for space,
 four zones are:
 
-* uppercase  A,  B, C ...
-* lowercase  a, b, c ...
-* numbers  0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-* specials  +, =, ! ...
+* uppercase : A,  B, C ...
+* lowercase : a, b, c ...
+* numbers : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+* specials : +, =, ! ...
 
-Example
--------
 ```xml
 <font>
 	<info>
