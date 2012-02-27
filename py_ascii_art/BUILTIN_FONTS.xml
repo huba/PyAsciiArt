@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Builtins>
+	<font>
+		<name>F3D_NE</name>
+		<file>fonts/3d_northeast.xml</file>
+	</font>
+</Builtins>

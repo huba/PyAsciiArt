@@ -17,11 +17,11 @@
 import text_parser
 
 class framed_text:
-    def __init__(self, text, filler = "*", holder = " ", width = 40,
+    def __init__(self, text_i, filler = "*", holder = " ", width = 40,
                  frame_width = 1, side_fr = True):
         self.filler = filler
         self.holder = holder
-        self.text = str(text)
+        self.text = text_i
         self.width = width
         self.frame_width = frame_width
         self.side_fr = side_fr
@@ -30,7 +30,7 @@ class framed_text:
         self.change_text(self.text)
 
     def change_text(self, text):
-        self.parsed_text = text_parser.parse_str(text)
+        self.parsed_text = text_parser.parse_to_width(text, (self.width - 2 * self.frame_width))
         self.art = self.gen_framed_text()
         
     def change_width(self, width):

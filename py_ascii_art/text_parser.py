@@ -14,54 +14,153 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-def parse_str(input_s):
-    chars = list(input_s)
-    input_S = input_s.upper()
-    CHARS = list(input_S)
-    row_s = ""
-    char_count = 0
-    output = []
-    first = True
+from xml.etree.ElementTree import ElementTree
 
-    while char_count < len(chars):
-        prev = char_count - 1
-        nxt = char_count + 1
-        if chars[char_count] == "\\" :
-            if char_count < (len(chars) - 1):
-                if CHARS[nxt] == "N":
-                    if char_count > 0:
-                        if chars[prev] != "\\":
-                                output.append(row_s)
-                                row_s = ""
-                                first = False
-                                char_count = char_count + 1
+def parse_str(text_i):
+    string = ""
+    for line in text_i:
+        string += line
 
-                    else:
-                        output.append(row_s)
-                        row_s = ""
-                        first = False
-                        char_count = char_count + 1
+    original = list(string)
+    new = []
+    i = 0
+    while i < len(original) - 1:
+        n = ""
+        n = original[i] + original[i + 1]
+        new.append(n)
+        i += 1
 
-                elif CHARS[nxt] == "T":
-                    if char_count > 0:
-                        if chars[prev] != "\\":
-                                row_s = row_s + (" " * 4)
-                                char_count = char_count + 1
+    x = 0
+    parsed = []
+    row = ""
+    while x < len(original):
+        if x < len(new):
+            if new[x] == "&N":
+                if x > 0:
+                    if new[x - 1] != "&&":
+                        parsed.append(row)
+                        row = ""
+                        x += 2
 
                     else:
-                        row_s = row_s + (" " * 4)
-                        char_count = char_count + 1
+                        x += 1
 
                 else:
-                    row_s = row_s + chars[char_count]
+                    parsed.append(row)
+                    row = ""
+                    x += 2
+
+            elif new[x] == "&T":
+                if x > 0:
+                    if new[x - 1] != "&&":
+                        row += (" ") * 4
+                        x += 2
+
+                    else:
+                        x += 1
+
+                else:
+                    row += (" ") * 4
+                    x += 2
 
             else:
-                row_s = row_s + chars[char_count]
-
+                row += original[x]
+                x += 1
+                
         else:
-            row_s = row_s + chars[char_count]
+            row += original[x]
+            x += 1
 
-        char_count = char_count + 1
+    parsed.append(row)
+    return parsed
 
-    output.append(row_s)
+def parse_to_width(text_i, max_width):
+    string = ""
+    for line in text_i:
+        string += line
+        
+    original = list(string)
+    new = []
+    i = 0
+    while i < len(original) - 1:
+        n = ""
+        n = original[i] + original[i + 1]
+        new.append(n)
+        i += 1
+
+    x = 0
+    parsed = []
+    row = ""
+    cur_width = 0
+    while x < len(original):
+        if cur_width == max_width:
+            parsed.append(row)
+            row = ""
+            cur_width = 0
+            
+        if x < len(new):
+            if new[x] == "&N":
+                if x > 0:
+                    if new[x - 1] != "&&":
+                        parsed.append(row)
+                        row = ""
+                        x += 2
+                        cur_width = 0
+
+                    else:
+                        x += 1
+                        cur_width += 1
+
+                else:
+                    parsed.append(row)
+                    row = ""
+                    x += 2
+                    cur_width = 0
+
+            elif new[x] == "&T":
+                if x > 0:
+                    if new[x - 1] != "&&":
+                        row += (" ") * (4 - cur_width % 4)
+                        x += 2
+                        cur_width += (4 - cur_width % 4)
+
+                    else:
+                        x += 1
+                        cur_width += 1
+
+                else:
+                    row += (" ") * (4 - cur_width % 4)
+                    x += 2
+                    cur_width += (4 - cur_width % 4)
+
+            else:
+                row += original[x]
+                x += 1
+                cur_width += 1
+                
+        else:
+            row += original[x]
+            x += 1
+            cur_width += 1
+
+    parsed.append(row)
+    return parsed
+
+def is_str_true(list_i):
+    output = False
+    info_s = str_from_list(list_i)
+
+    if info_s.upper() == "TRUE":
+        output = True
+    else:
+        output = False
+
     return output
+
+def str_from_list(list_i):
+    str_o = ""
+
+    for char in list_i:
+        str_o += char.text
+
+    return str_o
