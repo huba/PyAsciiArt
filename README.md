@@ -14,18 +14,18 @@ Overview
 --------
 test.py is script demonstrates how to use all the different classes from the API.
 There are classes classes: 
-* plain_title :  ascii art titles consisting of two different characters.
-* fancy_title :  ascii art titles using the fancy_font class.
-* fancy_font :  this class creates it's font style from an XML file.
-* framed_text :  puts text into a box.
+* plain_title   ascii art titles consisting of two different characters.
+* fancy_title   ascii art titles using the fancy_font class.
+* fancy_font   this class creates it's font style from an XML file.
+* framed_text   puts text into a box.
 And two other modules with methods that are only used by the classes:
-* text_parser :  miscellanius functions used by the othr classes, like finding new line characters "&N" and tab characters "&T", &&T will return &T.
-* font :  contains the default values used by the plain_font class.
+* text_parser   miscellanius functions used by the othr classes, like finding new line characters "&N" and tab characters "&T", &&T will return &T.
+* font   contains the default values used by the plain_font class.
 
 Usage
 -----
 
-plain_title:
+plain_title
 ```python
 from py_ascii_art.titles import plain_title
 
@@ -34,7 +34,7 @@ pt.print_art()
 
 ```
 
-fancy_title & fancy_font:
+fancy_title & fancy_font
 ```python
 from py_ascii_art.titles import plain_title, fancy_font
 
@@ -50,12 +50,12 @@ called font_sample.xml in py_ascii_art/fonts. Fill out the
 where needed, refer to the annotation.The font style is 
 divided up into four zones plus one only for space,
 four zones are:
-* uppercase : A,  B, C ...
-* lowercase : a, b, c ...
-* numbers : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-* specials : +, =, ! ...
+* uppercase  A,  B, C ...
+* lowercase  a, b, c ...
+* numbers  0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+* specials  +, =, ! ...
 
-Example:
+Example
 ```xml
 <font>
 	<info>
@@ -102,12 +102,12 @@ a font tag like this under the root tag:
 </Builtins>
 ```
 Done.
-You would use your new font as:
+You would use your new font as
 ```python
 ffont = fancy_font("NAME")
 ```
 
-framed_text:
+framed_text
 ```python
 from py_ascii_art import framed_text
 
