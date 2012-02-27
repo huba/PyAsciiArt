@@ -13,19 +13,17 @@ bit more.
 Overview
 --------
 test.py is script demonstrates how to use all the different classes from the API.
-There are classes classes: 
+There are classes classes
 * plain_title   ascii art titles consisting of two different characters.
 * fancy_title   ascii art titles using the fancy_font class.
 * fancy_font   this class creates it's font style from an XML file.
 * framed_text   puts text into a box.
-And two other modules with methods that are only used by the classes:
+And two other modules with methods that are only used by the classes
 * text_parser   miscellanius functions used by the othr classes, like finding new line characters "&N" and tab characters "&T", &&T will return &T.
 * font   contains the default values used by the plain_font class.
 
-Usage
------
-
 plain_title
+-----------
 ```python
 from py_ascii_art.titles import plain_title
 
@@ -35,6 +33,7 @@ pt.print_art()
 ```
 
 fancy_title & fancy_font
+------------------------
 ```python
 from py_ascii_art.titles import plain_title, fancy_font
 
@@ -56,6 +55,7 @@ four zones are:
 * specials  +, =, ! ...
 
 Example
+-------
 ```xml
 <font>
 	<info>
@@ -108,21 +108,17 @@ ffont = fancy_font("NAME")
 ```
 
 framed_text
+-----------
 ```python
 from py_ascii_art import framed_text
 
-lis = ["Hello, World!&N",
-       "&THow are we today? It's a nice day isn't it?"]
+lis = ["Hello, World!&N", "&THow are we today? It's a nice day isn't it?"]
 
-framed = framed_text(lis,
-                     filler = "#",
-                     frame_width = 1,
-                     side_fr = True,
-                     holder = " ",
-                     width = 32)
+framed = framed_text(lis, filler = "#", frame_width = 1, side_fr = True, holder = " ", width = 32)
 framed.print_art()
 ```
-Will produce:
+Will produce
+
 	################################
 	#Hello, World!                 #
 	#    How are we today? It's a n#
