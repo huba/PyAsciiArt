@@ -99,6 +99,7 @@ four zones are:
 and so on... Than save it as whatever you want to in the py_ascii_art/fonts
 folder, then open BUILTINS.xml in the py_ascii_art folder and add
 a font tag like this under the root tag:
+
 ```xml
 <Builtins>
 	<font>
@@ -107,8 +108,10 @@ a font tag like this under the root tag:
 	</font>
 </Builtins>
 ```
+
 Done.
 You would use your new font as
+
 ```python
 ffont = fancy_font("NAME")
 ```
