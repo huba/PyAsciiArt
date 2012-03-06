@@ -28,10 +28,10 @@ builtin_tree.parse(abs_path + "BUILTIN_FONTS.xml")
 b_fonts = builtin_tree.findall("font")
 for child in b_fonts:
     b_font_name_l = list(child.iter("name"))
-    b_font_name = text_parser.str_from_list(b_font_name_l)
+    b_font_name = text_parser._str_from_list(b_font_name_l)
 
     b_font_file_l = list(child.iter("file"))
-    b_font_file = abs_path + text_parser.str_from_list(b_font_file_l)
+    b_font_file = abs_path + text_parser._str_from_list(b_font_file_l)
 
     BUILTINS[b_font_name] = b_font_file
 
@@ -62,24 +62,24 @@ class fancy_font:
 
         #getting max number of lines making up a character
         line_info = list(info.iter("lines"))
-        line_info_s = text_parser.str_from_list(line_info)
+        line_info_s = text_parser._str_from_list(line_info)
         self.line_info = int(line_info_s)
 
         #getting if there are uppercase characters
         upper_info = list(info.iter("uppercase"))
-        self.uppercase = text_parser.is_str_true(upper_info)
+        self.uppercase = text_parser._is_str_true(upper_info)
 
         #getting if there are lowercase characters
         lower_info = list(info.iter("lowercase"))
-        self.lowercase = text_parser.is_str_true(lower_info)
+        self.lowercase = text_parser._is_str_true(lower_info)
 
         #getting if there are numerical characters
         numbr_info = list(info.iter("numbers"))
-        self.numbers = text_parser.is_str_true(numbr_info)
+        self.numbers = text_parser._is_str_true(numbr_info)
 
         #getting if there are special characters
         specs_info = list(info.iter("specials"))
-        self.specials = text_parser.is_str_true(specs_info)
+        self.specials = text_parser._is_str_true(specs_info)
 
         #getting missing characters
         #TODO get missing characters from xml
@@ -96,7 +96,7 @@ class fancy_font:
         if self.uppercase:
             uppercase_map = self.font_tree.findall("upper/char")
             for char_map in uppercase_map:
-                char_id = text_parser.str_from_list(list(char_map.iter("char_id")))
+                char_id = text_parser._str_from_list(list(char_map.iter("char_id")))
                 char_lns = list(char_map.iter("ln"))
                 char_cur = []
 
@@ -108,7 +108,7 @@ class fancy_font:
         if self.lowercase:
             lowercase_map = self.font_tree.findall("lower/char")
             for char_map in lowercase_map:
-                char_id = text_parser.str_from_list(list(char_map.iter("char_id")))
+                char_id = text_parser._str_from_list(list(char_map.iter("char_id")))
                 char_lns = list(char_map.iter("ln"))
                 char_cur = []
 
@@ -120,7 +120,7 @@ class fancy_font:
         if self.numbers:
             numbers_map = self.font_tree.findall("nums/char")
             for char_map in numbers_map:
-                char_id = text_parser.str_from_list(list(char_map.iter("char_id")))
+                char_id = text_parser._str_from_list(list(char_map.iter("char_id")))
                 char_lns = list(char_map.iter("ln"))
                 char_cur = []
 
@@ -132,7 +132,7 @@ class fancy_font:
         if self.specials:
             specials_map = self.font_tree.findall("spec/char")
             for char_map in specials_map:
-                char_id = text_parser.str_from_list(list(char_map.iter("char_id")))
+                char_id = text_parser._str_from_list(list(char_map.iter("char_id")))
                 char_lns = list(char_map.iter("ln"))
                 char_cur = []
 

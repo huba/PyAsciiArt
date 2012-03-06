@@ -44,12 +44,13 @@ def test_all():
 
     sinstr = "Enter text, or type BACK to&Nreturn to the main menu."
         
-    finstr = framed_text(minstr, width = WIDTH, filler = "#")
+    finstr = framed_text(minstr, width = WIDTH, filler = "#", title = "Testing", frame_title = True)
     finstr.print_art()
     
     pt = plain_title("")
     ft = fancy_title("", ffont)
-    fx = framed_text("")
+    fx = framed_text("", filler = "#",
+                     frame_width = 2)
 
     usr_in = raw_input(PROMPT)
     print ""

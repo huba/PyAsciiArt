@@ -25,7 +25,7 @@ class plain_title:
 
     def change_text(self, text):
         self.art = ""
-        rows_content = text_parser.parse_str(text)
+        rows_content = text_parser._parse_str(text)
         row = 0
         while row < len(rows_content):
             self.art = self.art + self.gen_ascii_art(rows_content[row])
@@ -310,7 +310,7 @@ class fancy_title:
 
 def test():
     ff = fancyf.fancy_font("F3D_NE")
-    ft = fancy_title("BRi\NHIyz\NHuba\N x8\NLinux\Nh%o", ff)
+    ft = fancy_title("BRi&NHIyz&NHuba&N x8&NLinux&Nh%o", ff)
     pt = plain_title("Hi")
     ft.print_art()
     pt.print_art()

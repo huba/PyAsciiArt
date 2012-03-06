@@ -16,6 +16,16 @@
 
 from xml.etree.ElementTree import ElementTree
 
+def _parse_str(string, width = None):
+    output = []
+    if width == None:
+        output = parse_str(string)
+
+    else:
+        output = parse_to_width(string, width)
+
+    return output
+
 def parse_str(text_i):
     string = ""
     for line in text_i:
@@ -146,9 +156,31 @@ def parse_to_width(text_i, max_width):
     parsed.append(row)
     return parsed
 
-def is_str_true(list_i):
+def _center(width, string):
+    output = []
+    processing = parse_to_width(string, width)
+    for row in processing:
+        pos = 0
+        row_width = len(row)
+        spaces = width / 2 - row_width / 2
+        temp = ""
+        temp += spaces * " "
+        pos += spaces
+        for i in row:
+            temp += i
+            pos += 1
+
+        while pos != width:
+            temp += " "
+            pos += 1
+
+        output.append(temp)
+
+    return output          
+
+def _is_str_true(list_i):
     output = False
-    info_s = str_from_list(list_i)
+    info_s = _str_from_list(list_i)
 
     if info_s.upper() == "TRUE":
         output = True
@@ -157,7 +189,7 @@ def is_str_true(list_i):
 
     return output
 
-def str_from_list(list_i):
+def _str_from_list(list_i):
     str_o = ""
 
     for char in list_i:
