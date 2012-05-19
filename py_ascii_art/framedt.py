@@ -18,99 +18,130 @@ import text_parser
 
 class framed_text:
     def __init__(self, text_i, filler = "*", holder = " ", width = 40,
-                 frame_width = 1, side_fr = True, title = None, frame_title = False):
-        self.filler = filler
-        self.holder = holder
-        self.text = text_i
-        self.width = width
-        self.frame_width = frame_width
-        self.side_fr = side_fr
-        self.title = title
-        self.frame_title = frame_title
-        self.art = ""
+                 frame_width = 1, side_filler = None,
+                 side_fr = True, title = None):
+        self.set_text(text_i, False)
+        self.set_filler(filler, False)
+        self.set_holder(holder, False)
+        self.set_width(width, False)
+        self.set_frame_width(frame_width, False)
+        self.set_side_frame(side_fr, side_filler, False)
+        self.set_title(title)
         
-        self.change_text(self.text)
+        self.set_text(self._text)
 
-    def change_text(self, text):
-        self.parsed_text = text_parser._parse_str(text, width = (self.width - 2 * self.frame_width))
-        self.art = self.gen_framed_text()
+    def set_text(self, text, regen = True):
+        self._text = text
+        if regen:
+            self._parsed_text = text_parser._parse_str(text, width = (self._width - 2 * self._frame_width))
+            self._art = self._gen_framed_text()
         
-    def change_width(self, width):
-        self.width = width
-        self.change_text(self.text)
+    def set_width(self, width, regen = True):
+        self._width = width
+        if regen:
+            self.set_text(self._text)
 
-    def change_frame_width(self, frame_width):
-        self.frame_width = frame_width
-        self.change_text(self.text)
+    def set_frame_width(self, frame_width, regen = True):
+        self._frame_width = frame_width
+        if regen:
+            self.set_text(self._text)
 
-    def change_title(self, title):
-        self.title = title
-        self.change_text(self.text)
+    def set_title(self, title, regen = True):
+        self._title = title
+        if title:
+            self._frame_title = True
 
-    def set_side_frame(self, side_fr):
-        self.side_fr = side_fr
-        self.change_text(self.text)
+        else:
+            self._frame_title = False
+            
+        if regen:
+            self.set_text(self._text)
+
+    def set_filler(self, filler, regen = True):
+        if filler:
+            self._filler = filler
+            if regen:
+                self.set_text(self._text)
+
+    def set_holder(self, holder, regen = True):
+        if holder:
+            self._holder = holder
+            if regen:
+                self.set_text(self._text)
+
+    def set_side_frame(self, side_fr = True, side_filler = None, regen = True):
+        self._side_fr = side_fr
+
+        if side_fr:
+            if side_filler:
+                self._side_filler = side_filler
+
+            else:
+                self._side_filler = self._filler
+
+        if regen:
+            self.set_text(self._text)
         
-    def gen_framed_text(self):
+    def _gen_framed_text(self):
         output = ""
         row_count = 0
         col_count = 0
         row = []
-        total_rows = len(self.parsed_text)
-        if self.side_fr:
-            total_cols = self.width - (2 * self.frame_width)
+        total_rows = len(self._parsed_text)
+        if self._side_fr:
+            total_cols = self._width - (2 * self._frame_width)
         else:
-            total_cols = self.width
+            total_cols = self._width
 
-        if self.title != None:
-            if self.frame_title:
-                output += ((self.filler * self.width) + "\n") 
+        if self._title:
+            if self._frame_title:
+                output += ((self._filler * self._width) + "\n") 
 
-            title = text_parser._center(self.width, self.title)
+            title = text_parser._center(self._width, self._title)
             for r in title:
                 row_str = ""
                 prev_ch = None
                 for ch in r:
                     if ch == " ":
-                        row_str += self.filler
+                        row_str += self._filler
                         
                     else:
                         row_str += ch
 
                 output += row_str + "\n"
 
-            if self.frame_title:
-                output += ((self.filler * self.width) + "\n") 
+            if self._frame_title:
+                output += ((self._filler * self._width) + "\n") 
 
         else:
-            output += ((self.filler * self.width) + "\n") * self.frame_width
+            output += ((self._filler * self._width) + "\n") * self._frame_width
             
         while row_count < total_rows:
             col_count = 0
-            if self.side_fr:
-                output += (self.filler * self.frame_width)
+            if self._side_fr:
+                output += (self._side_filler * self._frame_width)
                 
-            row = self.parsed_text[row_count]
+            row = self._parsed_text[row_count]
             chars = list(row)
             while col_count <= total_cols:
                 if col_count < len(row):
                     if row[col_count] == " ":
-                        output += self.holder
+                        output += self._holder
                     else:
                         output += row[col_count]
                 elif col_count > len(row):
-                    output += self.holder
+                    output += self._holder
 
                 col_count += 1
 
-            if self.side_fr:
-                output += (self.filler * self.frame_width)
+            if self._side_fr:
+                output += (self._side_filler * self._frame_width)
 
             output += "\n"
             row_count += 1
             
-        output = output + ((self.filler * self.width) + "\n") *self.frame_width
+        output = output + ((self._filler * self._width) + "\n") *self._frame_width
         return output
 
     def print_art(self):
-        print self.art
+        print self._art
